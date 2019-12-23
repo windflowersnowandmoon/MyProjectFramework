@@ -3,12 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.samecity.SameCityFragment">
+    tools:context=".ui.samecity.SameCityFragment"
+    android:background="#FFF200">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="400dp"
         android:text="SameCityFragment" />
 
 </FrameLayout>

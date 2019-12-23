@@ -69,6 +69,7 @@ class HomeParentFragment : BaseFragment() , View.OnClickListener{
         line3.setOnClickListener(this)
         line4.setOnClickListener(this)
         line4.setOnClickListener(this)
+        line5.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {

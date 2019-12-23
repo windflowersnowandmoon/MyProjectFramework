@@ -29,7 +29,7 @@ class HomeContainerFragment : Fragment() {
     private var param2: String? = null
     private var fragments: MutableList<Fragment>? = null
     private var vpAdapter: ViewPage2Adapter? = null
-    public  var fm: FragmentManager? = null
+    private var fm: FragmentManager? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,6 +40,8 @@ class HomeContainerFragment : Fragment() {
         fm = childFragmentManager
         fragments = ArrayList<Fragment>()
         vpAdapter = ViewPage2Adapter(context, fm!!)
+        fragments?.add(FollowFragment.newInstance("", ""))
+        fragments?.add(RecommendFragment.newInstance("", ""))
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -55,10 +57,8 @@ class HomeContainerFragment : Fragment() {
 
     private fun initData() {
 
-        fragments?.add(FollowFragment.newInstance("", ""))
-        fragments?.add(RecommendFragment.newInstance("", ""))
-        vp2.adapter = vpAdapter
 
+        vp2.adapter = vpAdapter
         vpAdapter!!.updataList(fragments!!)
     }
 

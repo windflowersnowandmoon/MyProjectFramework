@@ -2,6 +2,7 @@ package com.example.hasee.myprojectframework.custom
 
 import android.content.Context
 import android.util.AttributeSet
+import android.util.Log
 import android.view.MotionEvent
 import androidx.viewpager.widget.ViewPager
 import androidx.viewpager2.widget.ViewPager2
@@ -15,13 +16,13 @@ import androidx.viewpager2.widget.ViewPager2
  */
 class MyMainViewPage(context: Context, attrs: AttributeSet?) : ViewPager2(context, attrs) {
 
-    public var noScroll = true
+//    public var noScroll = true
 
     constructor(context: Context) : this(context, null) {
 
     }
 
-    override fun onTouchEvent(ev: MotionEvent?): Boolean {
+/*    override fun onTouchEvent(ev: MotionEvent?): Boolean {
         var touch = super.onTouchEvent(ev)
         if (!noScroll) touch = false
         return touch
@@ -31,5 +32,15 @@ class MyMainViewPage(context: Context, attrs: AttributeSet?) : ViewPager2(contex
         var touch = super.onInterceptTouchEvent(ev)
         if (!noScroll) touch = false
         return touch
+    }*/
+
+    override fun onTouchEvent(event: MotionEvent?): Boolean {
+        Log.i("onTouchEvent","----->onTouchEvent")
+        return false
+    }
+
+    override fun onInterceptHoverEvent(event: MotionEvent?): Boolean {
+        Log.i("onInterceptHoverEvent","----->onInterceptHoverEvent")
+        return false
     }
 }
