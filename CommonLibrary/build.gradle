@@ -38,4 +38,5 @@ dependencies {
     api var.adapterRxjava
     api var.viewpager2
     api var.androidx
+    api var.XTabLayout
 }
