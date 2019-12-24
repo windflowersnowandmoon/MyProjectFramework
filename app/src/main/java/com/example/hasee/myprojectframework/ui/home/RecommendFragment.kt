@@ -60,6 +60,7 @@ class RecommendFragment : Fragment() {
         var pagerSnapHelper = PagerSnapHelper()
         pagerSnapHelper.attachToRecyclerView(recommend_list)
 
+        recommend_list.layoutManager = layoutManager
         recommend_list.adapter = recommendFragment
         recommendFragment?.updataList(list!!)
     }

@@ -55,6 +55,10 @@ class MainFragment : Fragment() {
         vpAdapter!!.updataList(fragments!!)
     }
 
+    public fun setViewPageScroll(noScroll : Boolean){
+        vp.noScroll = noScroll
+    }
+
     companion object {
         /**
          * Use this factory method to create a new instance of

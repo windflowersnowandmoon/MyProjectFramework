@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.example.hasee.myprojectframework.R
+import com.example.hasee.myprojectframework.ui.MainFragment
 import com.example.hasee.myprojectframework.ui.home.adapter.ViewPage2Adapter
 import kotlinx.android.synthetic.main.fragment_home_container.*
 
@@ -77,5 +78,16 @@ class HomeContainerFragment : Fragment() {
                         putString(ARG_PARAM2, param2)
                     }
                 }
+    }
+
+    override fun onHiddenChanged(hidden: Boolean) {
+        super.onHiddenChanged(hidden)
+        if (parentFragment is HomeParentFragment) {
+            var homeParentFragment = parentFragment as HomeParentFragment
+            var fragment = homeParentFragment.parentFragment
+            if (fragment is MainFragment) {
+                fragment.setViewPageScroll(!hidden)
+            }
+        }
     }
 }

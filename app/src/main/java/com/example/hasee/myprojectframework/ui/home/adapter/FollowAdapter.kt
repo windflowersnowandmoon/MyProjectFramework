@@ -35,7 +35,7 @@ class FollowAdapter constructor(context: Context) : RecyclerView.Adapter<Recycle
     }
 
     override fun onBindViewHolder(p0: RecyclerView.ViewHolder, p1: Int) {
-        p0.itemView.im.setImageDrawable(ContextCompat.getDrawable(context, R.mipmap.ic_launcher))
+        p0.itemView.im.setImageDrawable(ContextCompat.getDrawable(context, R.mipmap.home_page_no_network2x))
     }
 
     private class MyViewHolde(itemView: View) : RecyclerView.ViewHolder(itemView)

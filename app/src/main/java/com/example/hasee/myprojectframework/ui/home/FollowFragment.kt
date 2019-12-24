@@ -1,14 +1,16 @@
 package com.example.hasee.myprojectframework.ui.home
 
-import android.content.Context
-import android.net.Uri
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.PagerSnapHelper
 import com.example.hasee.myprojectframework.R
+import com.peng.administrator.myobjectkotlin.FollowAdapter
+import kotlinx.android.synthetic.main.fragment_follow.*
+import kotlinx.android.synthetic.main.fragment_recommend.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -28,6 +30,8 @@ class FollowFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private var list: MutableList<String>? = ArrayList<String>()
+    private var recycleView2Adapter: FollowAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,12 +39,29 @@ class FollowFragment : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+        recycleView2Adapter = FollowAdapter(context!!)
+        for (index in 0..4) {
+            list?.add("你好啊${index}你好啊")
+        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_follow, container, false)
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        var linearLayoutManager = LinearLayoutManager(context)
+        linearLayoutManager.orientation = LinearLayoutManager.VERTICAL
+
+        var pagerSnapHelper = PagerSnapHelper()
+        pagerSnapHelper.attachToRecyclerView(follow_list)
+
+        follow_list.layoutManager = linearLayoutManager
+        follow_list.adapter = recycleView2Adapter
+        recycleView2Adapter?.updataList(list!!)
     }
 
     companion object {

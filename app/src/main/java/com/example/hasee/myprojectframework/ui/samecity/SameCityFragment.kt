@@ -36,6 +36,11 @@ class SameCityFragment : BaseFragment() {
 
     }
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        var sd = 9
+    }
+
     companion object {
         /**
          * Use this factory method to create a new instance of
