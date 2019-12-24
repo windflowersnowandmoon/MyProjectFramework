@@ -35,18 +35,8 @@ class MainFragment : Fragment() {
         fm = childFragmentManager
         vpAdapter = ViewPage2Adapter(context, fm!!)
         fragments.add(HomeParentFragment.newInstance("", ""))
-        fragments.add(PersonalDetailFragment.newInstance("", ""))
-    }
-
-//    override fun initData() {
-//        arguments?.let {
-//            param1 = it.getString(ARG_PARAM1)
-//            param2 = it.getString(ARG_PARAM2)
-//        }
-//        vpAdapter = ViewPage2Adapter(context, fm)
-//        fragments.add(HomeParentFragment.newInstance("", ""))
 //        fragments.add(PersonalDetailFragment.newInstance("", ""))
-//    }
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -56,11 +46,6 @@ class MainFragment : Fragment() {
 
 //    override fun setLayout(): Int {
 //        return R.layout.fragment_main
-//    }
-
-
-//    override fun initView(view: View?) {
-//        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
 //    }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

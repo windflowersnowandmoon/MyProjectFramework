@@ -3,7 +3,6 @@ package com.example.hasee.myprojectframework.ui.home.adapter
 import android.content.Context
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager2.adapter.FragmentStateAdapter
 
 class ViewPage2Adapter constructor(fm: FragmentManager) : /*FragmentPagerAdapter*/FragmentStateAdapter(fm) {
@@ -14,7 +13,7 @@ class ViewPage2Adapter constructor(fm: FragmentManager) : /*FragmentPagerAdapter
     private var fm: FragmentManager? = fm
 
 
-    constructor(context: Context? , fm : FragmentManager) : this(fm) {
+    constructor(context: Context?, fm: FragmentManager) : this(fm) {
         this.context = context
         this.fm = fm
     }
@@ -28,10 +27,10 @@ class ViewPage2Adapter constructor(fm: FragmentManager) : /*FragmentPagerAdapter
         return fragments.size
     }
 
-    public fun updataList(fragments : MutableList<Fragment>){
+    public fun updataList(fragments: MutableList<Fragment>) {
         this.fragments.clear()
         this.fragments.addAll(fragments)
-
+        notifyDataSetChanged()
     }
 
 }

@@ -27,7 +27,7 @@ class HomeContainerFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
-    private var fragments: MutableList<Fragment>? = null
+    private var fragments: MutableList<Fragment>? = ArrayList<Fragment>()
     private var vpAdapter: ViewPage2Adapter? = null
     private var fm: FragmentManager? = null
 
@@ -38,7 +38,6 @@ class HomeContainerFragment : Fragment() {
             param2 = it.getString(ARG_PARAM2)
         }
         fm = childFragmentManager
-        fragments = ArrayList<Fragment>()
         vpAdapter = ViewPage2Adapter(context, fm!!)
         fragments?.add(FollowFragment.newInstance("", ""))
         fragments?.add(RecommendFragment.newInstance("", ""))
@@ -56,8 +55,6 @@ class HomeContainerFragment : Fragment() {
     }
 
     private fun initData() {
-
-
         vp2.adapter = vpAdapter
         vpAdapter!!.updataList(fragments!!)
     }

@@ -5,11 +5,11 @@
     android:id="@+id/frame_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.MainFragment"
-    android:background="#E9DF1E">
+    tools:context=".ui.MainFragment">
 
     <com.example.hasee.myprojectframework.custom.MyMainViewPage
         android:id="@+id/vp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:background="#E9DF1E"/>
 </RelativeLayout>
