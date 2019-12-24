@@ -6,9 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT
 import com.example.hasee.myprojectframework.R
 import com.example.hasee.myprojectframework.ui.home.HomeParentFragment
-import com.example.hasee.myprojectframework.ui.home.adapter.ViewPage2Adapter
+import com.example.hasee.myprojectframework.ui.home.adapter.ViewPageAdapter
 import kotlinx.android.synthetic.main.fragment_main.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -22,7 +23,7 @@ class MainFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
     private var fragments: MutableList<Fragment> = ArrayList<Fragment>()
-    private var vpAdapter: ViewPage2Adapter? = null
+    private var vpAdapter: ViewPageAdapter? = null
     private var fm: FragmentManager? = null
 
 
@@ -33,9 +34,9 @@ class MainFragment : Fragment() {
             param2 = it.getString(ARG_PARAM2)
         }
         fm = childFragmentManager
-        vpAdapter = ViewPage2Adapter(context, fm!!)
+        vpAdapter = ViewPageAdapter(fm!!, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT)
         fragments.add(HomeParentFragment.newInstance("", ""))
-//        fragments.add(PersonalDetailFragment.newInstance("", ""))
+        fragments.add(PersonalDetailFragment.newInstance("", ""))
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,

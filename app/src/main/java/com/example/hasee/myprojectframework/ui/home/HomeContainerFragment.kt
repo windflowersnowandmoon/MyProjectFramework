@@ -38,7 +38,7 @@ class HomeContainerFragment : Fragment() {
             param2 = it.getString(ARG_PARAM2)
         }
         fm = childFragmentManager
-        vpAdapter = ViewPage2Adapter(context, fm!!)
+        vpAdapter = ViewPage2Adapter(context, activity!!)
         fragments?.add(FollowFragment.newInstance("", ""))
         fragments?.add(RecommendFragment.newInstance("", ""))
     }

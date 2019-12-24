@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.MainFragment">
 
-    <com.example.hasee.myprojectframework.custom.MyMainViewPage
+    <androidx.viewpager.widget.ViewPager
         android:id="@+id/vp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
