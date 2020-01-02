@@ -6,6 +6,7 @@ import android.util.Log;
 import com.example.common.base.BaseActivity;
 import com.example.common.network.GetRequestInterface;
 import com.example.common.network.wanandroid;
+import com.example.common.utils.LogUtils;
 import com.example.hasee.myprojectframework.ui.MainFragment;
 
 import androidx.fragment.app.FragmentManager;
@@ -40,7 +41,8 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void requsetData() {
-
+        LogUtils.i("MainActivity","我进来了啊啊啊啊啊");
+        Log.i("MainActivity","我进来了啊啊啊啊啊2");
     }
 
     public void getContent() {

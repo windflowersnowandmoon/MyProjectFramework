@@ -296,11 +296,11 @@ public class LogUtils {
             if ('e' == type && ('e' == logFilter || 'v' == logFilter)){
                 Logger.t(tag).e(msg);
             }else if ('w' == type && ('w' == logFilter || 'v' == logFilter)){
-
+                Logger.t(tag).w(msg);
             }else if ('d' == type && ('d' == logFilter || 'v' == logFilter)) {
-
+                Logger.t(tag).d(msg);
             }else if ('i' == type && ('d' == logFilter || 'v' == logFilter)) {
-
+                Logger.t(tag).i(msg);
             }
             if (logFileSwitch){
                 //日志写入本地文件逻辑
