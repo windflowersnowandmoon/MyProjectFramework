@@ -1,6 +1,7 @@
 package com.example.common.utils;
 
 
+import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
 
 import java.io.BufferedWriter;
@@ -64,10 +65,13 @@ public class LogUtils {
 
 
     public static void init(boolean logSwitch , boolean logFileSwitch , char logFilter){
-
+        LogUtils.logSwitch = logSwitch;
+        LogUtils.logFileSwitch = logFileSwitch;
+        LogUtils.logFilter = logFilter;
     }
 
     public static Builder getBuilder(){
+        Logger.addLogAdapter(new AndroidLogAdapter());
         return new Builder();
     }
 

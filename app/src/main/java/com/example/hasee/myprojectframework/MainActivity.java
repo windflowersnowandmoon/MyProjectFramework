@@ -42,7 +42,6 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void requsetData() {
         LogUtils.i("MainActivity","我进来了啊啊啊啊啊");
-        Log.i("MainActivity","我进来了啊啊啊啊啊2");
     }
 
     public void getContent() {
