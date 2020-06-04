@@ -1,6 +1,10 @@
 package com.example.hasee.myprojectframework.app;
 
+import android.content.Context;
+
 import com.example.common.base.AbstractAppLication;
+
+import androidx.multidex.MultiDex;
 
 /**
  * $
@@ -20,5 +24,11 @@ public class AppContext extends AbstractAppLication {
     public void onCreate() {
         super.onCreate();
         appContext = this;
+    }
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(this);
     }
 }

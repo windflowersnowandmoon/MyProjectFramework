@@ -1,16 +1,37 @@
 package com.example.hasee.myprojectframework.ui
 
+import android.graphics.drawable.PictureDrawable
 import android.os.Bundle
+import android.os.Looper
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT
+import com.bumptech.glide.Glide
+import com.bumptech.glide.RequestBuilder
 import com.example.hasee.myprojectframework.R
+import com.example.hasee.myprojectframework.contract.Node
+import com.example.hasee.myprojectframework.contract.asd
+import com.example.hasee.myprojectframework.svg.SvgSoftwareLayerSetter
 import com.example.hasee.myprojectframework.ui.home.HomeParentFragment
 import com.example.hasee.myprojectframework.ui.home.adapter.ViewPageAdapter
 import kotlinx.android.synthetic.main.fragment_main.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import nl.komponents.kovenant.task
+import nl.komponents.kovenant.then
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import android.net.Uri
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+
+
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -25,6 +46,17 @@ class MainFragment : Fragment() {
     private var fragments: MutableList<Fragment> = ArrayList<Fragment>()
     private var vpAdapter: ViewPageAdapter? = null
     private var fm: FragmentManager? = null
+    private var requestBuilder: RequestBuilder<PictureDrawable>? = null
+    private val test : String?
+    get() {
+        return getString()?.let {
+            Log.i("我怒号","----》我怒号")
+            it
+        }?: run {
+            Log.i("我怒号","----》我怒号1")
+            "我怒号"
+        }
+    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,17 +77,91 @@ class MainFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_main, container, false)
     }
 
-//    override fun setLayout(): Int {
+    //    override fun setLayout(): Int {
 //        return R.layout.fragment_main
 //    }
+
+
+    val properties: MutableList<UserProperty> = mutableListOf()
+
+    fun <T : UserProperty> getByRef(ref: String) = properties.firstOrNull {
+        it.ref == ref
+    }!! as T
+
+
+    class UserProperty(var ref: String, var name: String) {
+
+        private val value: String
+            get() = this.toString()
+
+    }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         vp.adapter = vpAdapter
         vpAdapter!!.updataList(fragments!!)
+
+        var sd: asd = asd()
+        sd.testcallback1 { l ->
+            Log.i("testcallback1", "---->$l" + "llasdasdasd")
+            Log.i("testcallback1", "---->")
+        }
+
+        val result = sd.testcallback2(1, 2) { l, s ->
+            /*l + s*/Log.i("testcallback2", "---->$l  s =  $s")
+            Log.i("testcallback2", "---->$l  s =  $s")
+        }
+
+        var resources: MutableList<Node> = mutableListOf()
+        var names: String = "洒水多"
+        val index = resources.indexOfFirst { it.name == names }
+        if (index == -1)
+            Log.i("testcallback1", "---->result = $result")
+
+//        GlobalScope.launch(Dispatchers.IO) {
+//            Log.i("launch", "---->launch = ${Looper.getMainLooper().thread.id}    Thread.currentThread() =   ${Thread.currentThread().id}")
+//            Thread.sleep(2000)
+//            GlobalScope.launch(Dispatchers.Main) {
+//                Log.i("launch", "---->launch1 = ${Looper.getMainLooper().thread.id}    Thread.currentThread() =   ${Thread.currentThread().id}")
+//            }
+//        }
+        GlobalScope.launch(Dispatchers.Main) {
+            Log.i("launch", "---->launch2 = ${Looper.getMainLooper().thread.id}    Thread.currentThread() =   ${Thread.currentThread().id}")
+            task {
+                Log.i("launch", "---->launch3 = ${Looper.getMainLooper().thread.id}    Thread.currentThread() =   ${Thread.currentThread().id}")
+            }.then {
+                Log.i("launch", "---->launch4 = ${Looper.getMainLooper().thread.id}    Thread.currentThread() =   ${Thread.currentThread().id}")
+                Thread.sleep(2000)
+            }
+            Log.i("launch", "---->launch5 = ${Looper.getMainLooper().thread.id}    Thread.currentThread() =   ${Thread.currentThread().id}")
+        }
+
+        for (i in 1..5) {
+            var userProperty = UserProperty("你好1$i", "你好2$i")
+            properties.add(userProperty)
+        }
+
+        var sdasdas = getByRef<UserProperty>("你好12").let {
+
+            Log.i("UserProperty", "---->UserProperty = $it  it.ref = ${it.ref}   it.name = ${it.name}")
+        }
+//        myimage.setImageResource(R.drawable.ic_xia)
+//        requestBuilder = Glide.with(this)
+//                .`as`(PictureDrawable::class.java)
+//                .placeholder(R.drawable.ic_launcher_background)
+//                .error(R.drawable.ic_xia)
+//                .transition(withCrossFade())
+//                .listener(SvgSoftwareLayerSetter())
+        loadNet()
+
+        Log.i("test","---->test = $test")
     }
 
-    public fun setViewPageScroll(noScroll : Boolean){
+    fun getString() : String ?{
+        return null
+    }
+
+    public fun setViewPageScroll(noScroll: Boolean) {
         vp.noScroll = noScroll
     }
 
@@ -77,5 +183,20 @@ class MainFragment : Fragment() {
                         putString(ARG_PARAM2, param2)
                     }
                 }
+    }
+
+    private fun loadNet() {
+//        val uri = Uri.parse("http://www.clker.com/cliparts/u/Z/2/b/a/6/android-toy-h.svg")
+//        val uri = Uri.parse("https://raw.githubusercontent.com/LiPengfei0106/GlideSupport/master/imgs/svg.svg")
+//        requestBuilder!!.load(uri).into(myimage)
+//        Glide.with(this).load("https://lh6.ggpht.com/9SZhHdv4URtBzRmXpnWxZcYhkgTQurFuuQ8OR7WZ3R7fyTmha77dYkVvcuqMu3DLvMQ=w300").into(myimage)
+//        Glide.with(activity!!)
+////                .load("http://e.hiphotos.baidu.com/image/pic/item/a1ec08fa513d2697e542494057fbb2fb4316d81e.jpg")
+//                .load("https://raw.githubusercontent.com/LiPengfei0106/GlideSupport/master/imgs/svg.svg")
+//                .placeholder(R.drawable.ic_launcher_background)//图片加载出来前，显示的图片
+//                .error(R.drawable.ic_xia)//图片加载失败后，显示的图片
+//                .into(myimage)
+
+
     }
 }

@@ -1,5 +1,7 @@
 package com.example.common.retrofit;
 
+import retrofit2.Retrofit;
+
 /**
  * $
  * 作   者 :彭付林
@@ -10,4 +12,8 @@ package com.example.common.retrofit;
 public class RefrofitManager implements IRetrofit{
 
 
+    @Override
+    public Retrofit getRetrofit() {
+        return null;
+    }
 }

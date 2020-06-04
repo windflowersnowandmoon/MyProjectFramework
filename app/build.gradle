@@ -11,6 +11,8 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -18,21 +20,50 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    repositories {
+        flatDir {
+            dirs 'libs' /*, '../okgo/libs'*/
+        }
+    }
+
+    // 移除lint检查的error
+    lintOptions {
+        abortOnError false
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+//    api files('libs/DownloadJar_V1.0.jar')
+//    api files('libs/download_okgo.jar')
+//    api files('libs/okgo.jar')
+//    api files('libs/lib_okgo.jar')
+
+//    api files('libs/okio-1.14.0.jar')
 //    implementation 'com.android.support:appcompat-v7:28.0.0'
 //    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
 //    testImplementation 'junit:junit:4.12'
 //    androidTestImplementation 'com.android.support.test:runner:1.0.2'
 //    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
-//    api var.appcompatv7
     api var.constraintlayout
     implementation project(':CommonLibrary')
 
 //    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.legacy:legacy-support-v4:1.0.0-alpha1'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'com.google.android.material:material:1.1.0'
+
+    final KOVENANT_VERSION = '3.3.0'
+    implementation "nl.komponents.kovenant:kovenant:$KOVENANT_VERSION"
+    implementation "nl.komponents.kovenant:kovenant-core:$KOVENANT_VERSION"
+    implementation "nl.komponents.kovenant:kovenant-android:$KOVENANT_VERSION"
+    implementation "nl.komponents.kovenant:kovenant-combine:$KOVENANT_VERSION"
+    implementation "nl.komponents.kovenant:kovenant-jvm:$KOVENANT_VERSION"
+    implementation "nl.komponents.kovenant:kovenant-functional:$KOVENANT_VERSION"
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 }

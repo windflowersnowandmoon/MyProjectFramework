@@ -9,6 +9,12 @@
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#00f"></FrameLayout>
+        android:background="#00f"
+        android:visibility="gone"></FrameLayout>
+
+    <ImageView
+        android:id="@+id/mysvgimage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></ImageView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

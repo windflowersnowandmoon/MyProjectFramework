@@ -63,6 +63,18 @@ class FollowFragment : Fragment() {
         follow_list.layoutManager = linearLayoutManager
         follow_list.adapter = recycleView2Adapter
         recycleView2Adapter?.updataList(list!!)
+
+        param1?.let {
+            init()
+        } ?: run {
+            init()
+        }
+
+
+    }
+
+    fun init(){
+
     }
 
     companion object {

@@ -1,15 +1,16 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    ext.kotlin_version = '1.2.61'
+    ext.kotlin_version = '1.3.61'
 
 
     repositories {
         google()
         jcenter()
+        mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.2.0'
+        classpath 'com.android.tools.build:gradle:3.6.0'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -46,6 +47,10 @@ ext {
     androidxVersion = "1.0.0-beta01"
     XTabLayoutVersion = "1.1.3"
     loggerVersion = "2.2.0"
+    coroutinesVersion = "1.2.1"
+    androidsvgVersion  = "1.4"
+    multidexVersion = "1.0.1"
+    glideVersion = "4.11.0"
 
     var = [
 //            appcompatv7 : "com.android.support:appcompat-v7:$appcompatv7Version" ,
@@ -64,6 +69,12 @@ ext {
         XTabLayout         : "com.androidkun:XTabLayout:$XTabLayoutVersion",
 
         //日志库
-        logger             : "com.orhanobut:logger:$loggerVersion"
+        logger             : "com.orhanobut:logger:$loggerVersion" ,
+        //携程库
+        coroutines         : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion" ,
+        kotlin_coroutines  :"org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion",
+        androidsvg         : "com.caverock:androidsvg-aar:$androidsvgVersion",
+        multidex           : "com.android.support:multidex:$multidexVersion",
+        glide              :"com.github.bumptech.glide:glide:$glideVersion"
     ]
 }

@@ -48,4 +48,9 @@ dependencies {
     api var.androidx
     api var.XTabLayout
     api var.logger
+    api var.coroutines
+    api var.kotlin_coroutines
+    api var.androidsvg
+    api var.multidex
+    api var.glide
 }
