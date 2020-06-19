@@ -3,6 +3,7 @@ package com.example.hasee.myprojectframework;
 import android.graphics.drawable.PictureDrawable;
 import android.os.Looper;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -10,6 +11,9 @@ import com.example.common.base.BaseActivity;
 import com.example.common.network.GetRequestInterface;
 import com.example.common.network.wanandroid;
 import com.example.common.utils.LogUtils;
+import com.example.hasee.myprojectframework.contract.IoTest;
+import com.example.hasee.myprojectframework.contract.TestNewInstance;
+import com.example.hasee.myprojectframework.custom.MyMainViewPage;
 import com.example.hasee.myprojectframework.svg.SvgSoftwareLayerSetter;
 import com.example.hasee.myprojectframework.ui.MainFragment;
 
@@ -27,7 +31,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends BaseActivity {
     private int fragment_container = R.id.fragment_container;
-    private ImageView mysvgimage;
+//    private ImageView mysvgimage;
     @Override
     protected int setLayout() {
         return R.layout.activity_main;
@@ -45,11 +49,33 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void requsetData() {
-        mysvgimage = findViewById(R.id.mysvgimage);
-        LogUtils.i("MainActivity","我进来了啊啊啊啊啊");
-        Glide.with(this).as(PictureDrawable.class)
-                .listener(new SvgSoftwareLayerSetter())
-                .load("http://www.clker.com/cliparts/u/Z/2/b/a/6/android-toy-h.svg").into(mysvgimage);
+//        mysvgimage = findViewById(R.id.mysvgimage);
+//        mysvgimage.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                try {
+//                    TestNewInstance ioTest =   TestNewInstance.class.newInstance();
+//                    LogUtils.i("MainActivity","我进来了啊啊啊啊啊 IoTest = " + ioTest.hashCode());
+//                } catch (IllegalAccessException e) {
+//                    e.printStackTrace();
+//                } catch (InstantiationException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        });
+//        LogUtils.i("MainActivity","我进来了啊啊啊啊啊");
+//        try {
+//            TestNewInstance ioTest =   TestNewInstance.class.newInstance();
+//            Log.i("myMainViewPage","----->IoTest = " + ioTest.hashCode());
+//        } catch (IllegalAccessException e) {
+//            e.printStackTrace();
+//        } catch (InstantiationException e) {
+//            e.printStackTrace();
+//        }
+//
+//        Glide.with(this).as(PictureDrawable.class)
+//                .listener(new SvgSoftwareLayerSetter())
+//                .load("http://www.clker.com/cliparts/u/Z/2/b/a/6/android-toy-h.svg").into(mysvgimage);
     }
 
     public void getContent() {

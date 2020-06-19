@@ -8,13 +8,14 @@
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#00f"
-        android:visibility="gone"></FrameLayout>
+        android:layout_height="match_parent"></FrameLayout>
 
-    <ImageView
-        android:id="@+id/mysvgimage"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></ImageView>
+<!--    <ImageView-->
+<!--        android:id="@+id/mysvgimage"-->
+<!--        android:layout_width="100dp"-->
+<!--        android:layout_height="100dp"-->
+<!--        android:scaleType="centerInside"-->
+<!--        android:background="#00ffff"-->
+<!--        tools:ignore="MissingConstraints"></ImageView>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

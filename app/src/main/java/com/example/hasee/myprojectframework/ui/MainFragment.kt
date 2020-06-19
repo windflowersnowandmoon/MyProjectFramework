@@ -30,11 +30,6 @@ import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 
-
-
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
@@ -46,7 +41,6 @@ class MainFragment : Fragment() {
     private var fragments: MutableList<Fragment> = ArrayList<Fragment>()
     private var vpAdapter: ViewPageAdapter? = null
     private var fm: FragmentManager? = null
-    private var requestBuilder: RequestBuilder<PictureDrawable>? = null
     private val test : String?
     get() {
         return getString()?.let {
@@ -76,11 +70,6 @@ class MainFragment : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_main, container, false)
     }
-
-    //    override fun setLayout(): Int {
-//        return R.layout.fragment_main
-//    }
-
 
     val properties: MutableList<UserProperty> = mutableListOf()
 
@@ -145,15 +134,6 @@ class MainFragment : Fragment() {
 
             Log.i("UserProperty", "---->UserProperty = $it  it.ref = ${it.ref}   it.name = ${it.name}")
         }
-//        myimage.setImageResource(R.drawable.ic_xia)
-//        requestBuilder = Glide.with(this)
-//                .`as`(PictureDrawable::class.java)
-//                .placeholder(R.drawable.ic_launcher_background)
-//                .error(R.drawable.ic_xia)
-//                .transition(withCrossFade())
-//                .listener(SvgSoftwareLayerSetter())
-        loadNet()
-
         Log.i("test","---->test = $test")
     }
 
@@ -185,18 +165,4 @@ class MainFragment : Fragment() {
                 }
     }
 
-    private fun loadNet() {
-//        val uri = Uri.parse("http://www.clker.com/cliparts/u/Z/2/b/a/6/android-toy-h.svg")
-//        val uri = Uri.parse("https://raw.githubusercontent.com/LiPengfei0106/GlideSupport/master/imgs/svg.svg")
-//        requestBuilder!!.load(uri).into(myimage)
-//        Glide.with(this).load("https://lh6.ggpht.com/9SZhHdv4URtBzRmXpnWxZcYhkgTQurFuuQ8OR7WZ3R7fyTmha77dYkVvcuqMu3DLvMQ=w300").into(myimage)
-//        Glide.with(activity!!)
-////                .load("http://e.hiphotos.baidu.com/image/pic/item/a1ec08fa513d2697e542494057fbb2fb4316d81e.jpg")
-//                .load("https://raw.githubusercontent.com/LiPengfei0106/GlideSupport/master/imgs/svg.svg")
-//                .placeholder(R.drawable.ic_launcher_background)//图片加载出来前，显示的图片
-//                .error(R.drawable.ic_xia)//图片加载失败后，显示的图片
-//                .into(myimage)
-
-
-    }
 }
